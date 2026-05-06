@@ -4,7 +4,7 @@ on:
     push:
         branches:
             - master
-            - CCL-*
+            - CCL-8872
 jobs:
     build-scan:
         uses: UKHomeOffice/core-cloud-workflow-docker-actions/.github/workflows/build-scan.yml@1.3.0
