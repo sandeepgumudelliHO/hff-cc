@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   migrate_docker:
-    uses: github.com/UKHomeOffice/core-cloud-migration-playbook/.github/workflows/migrate-artifacts.yml@CCL-10136
+    uses: UKHomeOffice/core-cloud-migration-playbook/.github/workflows/migrate-artifacts.yml@CCL-10136
     with:
       package_type: docker
       artifact_names: acp-ca
