@@ -5,6 +5,15 @@ on:
         branches:
             - CCL-*
   workflow_dispatch:
+    inputs:
+      runner_target:
+        description: Runner target for migration
+        required: false
+        type: choice
+        options:
+          - ubuntu-latest
+          - self-hosted
+        default: ubuntu-latest
 jobs:
   migrate_docker:
     permissions:
@@ -17,7 +26,7 @@ jobs:
       jfrog_repository: artifactory-internal
       target_repository: acp-ca
       aws_region: eu-west-2
-      #runner_labels_json: '["self-hosted"]'
+      runner_labels_json: ${{ github.event_name == 'workflow_dispatch' && inputs.runner_target == 'self-hosted' && '["self-hosted"]' || '["ubuntu-latest"]' }}
       #codeartifact_domain: enterprise-domain
       #codeartifact_owner: "123456789012"
     secrets:
