@@ -1,0 +1,22 @@
+name: Tenant Migration Example - Docker
+
+on:
+  push:
+        branches:
+            - CCL-*
+  workflow_dispatch:
+jobs:
+  migrate_docker:
+    uses: github.com/UKHomeOffice/core-cloud-migration-playbook/.github/workflows/migrate-artifacts.yml@CCL-10136
+    with:
+      package_type: docker
+      artifact_names: acp-ca
+      jfrog_repository: artifactory-internal
+      target_repository: migration-artifact-test
+      aws_region: eu-west-2
+      #codeartifact_domain: enterprise-domain
+      #codeartifact_owner: "123456789012"
+    secrets:
+      target_role_to_assume: ${{ secrets.TARGET_ROLE_TO_ASSUME }}
+      jfrog_url: ${{ secrets.JFROG_URL }}
+      jfrog_docker_registry: ${{ secrets.JFROG_DOCKER_REGISTRY }}
