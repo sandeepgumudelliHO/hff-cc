@@ -15,8 +15,9 @@ jobs:
       package_type: docker
       artifact_names: acp-ca
       jfrog_repository: artifactory-internal
-      target_repository: migration-artifact-test
+      target_repository: acp-ca
       aws_region: eu-west-2
+      runner_labels_json: '["self-hosted"]'
       #codeartifact_domain: enterprise-domain
       #codeartifact_owner: "123456789012"
     secrets:
