@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
 jobs:
   migrate_docker:
+    permissions:
+        contents: read
+        id-token: write
     uses: UKHomeOffice/core-cloud-migration-playbook/.github/workflows/migrate-artifacts.yml@CCL-10136
     with:
       package_type: docker
