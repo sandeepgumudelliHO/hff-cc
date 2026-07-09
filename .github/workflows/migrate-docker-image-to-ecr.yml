@@ -31,5 +31,5 @@ jobs:
       #codeartifact_owner: "123456789012"
     secrets:
       target_role_to_assume: ${{ secrets.TARGET_ROLE_TO_ASSUME }}
-      jfrog_url: ${{ secrets.JFROG_URL }}
+      jfrog_url: ${{ secrets.JFROG_URL }}/ui/repos/tree/General/artifactory-internal/acp-ca/*
       jfrog_docker_registry: ${{ secrets.JFROG_DOCKER_REGISTRY }}
